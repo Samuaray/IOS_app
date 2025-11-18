@@ -29,7 +29,7 @@ struct MainTabView: View {
                 .tag(1)
 
             // History Tab
-            Text("History - Coming Soon")
+            HistoryView()
                 .tabItem {
                     Label("History", systemImage: "clock.fill")
                 }
