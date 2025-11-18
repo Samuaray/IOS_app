@@ -66,4 +66,14 @@ class UserService {
 
         return response
     }
+
+    // MARK: - Delete Account
+    func deleteAccount() async throws {
+        struct EmptyResponse: Decodable {}
+
+        let _: EmptyResponse = try await APIService.shared.request(
+            endpoint: "/user/account",
+            method: .delete
+        )
+    }
 }

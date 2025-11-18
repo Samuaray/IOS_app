@@ -36,7 +36,7 @@ struct MainTabView: View {
                 .tag(2)
 
             // Settings Tab
-            Text("Settings - Coming Soon")
+            SettingsView()
                 .tabItem {
                     Label("Settings", systemImage: "gear")
                 }
