@@ -50,7 +50,7 @@ struct NewAnalysisView: View {
 
                     case .results:
                         if let analysis = viewModel.currentAnalysis {
-                            ResultsView(analysis: analysis)
+                            AnalysisResultsView(analysis: analysis)
                         } else {
                             Text("No results available")
                         }
@@ -141,48 +141,7 @@ struct ProgressIndicator: View {
     }
 }
 
-// MARK: - Placeholder Views (to be implemented)
-struct ResultsView: View {
-    let analysis: Analysis
-
-    var body: some View {
-        ScrollView {
-            VStack(spacing: Constants.Spacing.spacing20) {
-                // Winner badge
-                VStack(spacing: Constants.Spacing.spacing8) {
-                    Image(systemName: "trophy.fill")
-                        .font(.system(size: 50))
-                        .foregroundColor(Constants.Colors.warningOrange)
-
-                    if let winner = analysis.winner {
-                        Text("Thumbnail #\(winner.orderIndex) is your winner!")
-                            .font(Constants.Typography.headlineSmall)
-                            .fontWeight(.semibold)
-
-                        Text("Score: \(winner.overallScore ?? 0)/100")
-                            .font(Constants.Typography.bodyLarge)
-                            .foregroundColor(Constants.Colors.textSecondary)
-                    }
-                }
-                .padding()
-
-                // Placeholder for thumbnail grid
-                Text("Results view - Full implementation in Phase 3")
-                    .foregroundColor(.gray)
-                    .padding()
-            }
-        }
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button("Done") {
-                    // Dismiss
-                }
-            }
-        }
-    }
-}
-
+// MARK: - Paywall View
 struct PaywallView: View {
     @Environment(\.dismiss) var dismiss
 
